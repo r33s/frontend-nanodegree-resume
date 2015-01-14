@@ -49,6 +49,7 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
+var HTMLcertStart = '<div class="cert-entry"></div>';
 var HTMLcertClasses = '<h3 class="justify">Certifications</h3>';
 var HTMLcertInstitute = '<a href="#">%data%';
 var HTMLcertTitle = ' - %data%</a>';

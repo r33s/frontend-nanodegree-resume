@@ -17,7 +17,7 @@ var bio = {
 	"skills": [
 	"project management", "programming", "web development", "networking"
 	]
-};
+}
 
 var work = {
 	"jobs": [
@@ -44,7 +44,7 @@ var work = {
 		}
 	]
 	
-};
+}
 
 var education = {
 	"schools": [
@@ -72,7 +72,10 @@ var education = {
 			"date": "In progress - expected late Spring 2015",
 			"url": "https://www.udacity.com/course/nd001"
 		}
-	],
+	]
+}
+
+var certification = {
 	"certs": [
 		{
 			"title": "Cisco Certified Network Associate - CCNA",
@@ -105,13 +108,13 @@ var education = {
 		{
 			"title": "Six Sigma Green Belt",
 			"institute": "at&t",
-			"id": "N/A",
+			"id": "",
 			"date": "Certified November 15, 2013",
 			"image": "images/mechillin.jpg",
 		}
 	]
 	
-};
+}
 
 var projects = {
 	"projects": [
@@ -128,7 +131,7 @@ var projects = {
 		"images": [""]
 		}
 	]
-};
+}
 
 var formattedMobile = HTMLmobile.replace("%data%",bio.contactinfo.mobile);
 var formattedEmail = HTMLemail.replace("%data%",bio.contactinfo.email);
@@ -198,7 +201,7 @@ function displayEducation(){
 		$(".education-entry:last").append(formattedSchoolMajor);
 		}
 
-	if(education.certs != 0){
+	/*if(education.certs != 0){
 		$(".education-entry:last").append(HTMLcertClasses);
 		for(cert in education.certs){
 			var formattedCertTitle = HTMLcertTitle.replace("%data%",education.certs[cert].title);
@@ -211,11 +214,43 @@ function displayEducation(){
 			$(".education-entry:last").append(formattedCertDate);
 			$(".education-entry:last").append(formattedCertID);
 		}
-	}
+	}*/
+}
+
+function displayCerts(){
+	for(cert in certification.certs){
+		$("#cert").append(HTMLcertStart);
+		var formattedCertTitle = HTMLcertTitle.replace("%data%",certification.certs[cert].title);
+		var formattedCertInstitute = HTMLcertInstitute.replace("%data%",certification.certs[cert].institute);
+		var formattedInstituteTitle = formattedCertInstitute + formattedCertTitle;
+		$(".cert-entry:last").append(formattedInstituteTitle);
+		var formattedCertDate = HTMLcertDate.replace("%data%", certification.certs[cert].date);
+		
+		//var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		//var i = certification.certs.length;
+		//console.log(i);
+		//if(certification.certs[cert].id!="5"){
+		//	console.log(certification.certs[cert].id);
+			var formattedCertID = HTMLcertID.replace("%data%", certification.certs[cert].id);
+		//var formattedCertSpace = 
+		//	console.log(certification.certs[cert].id);
+		//}
+		//console.log(i);
+		$(".cert-entry:last").append(formattedCertDate);
+		console.log(formattedCertID);
+		if(formattedCertID!='<em><br>Career ID: </em>'){
+			$(".cert-entry:last").append(formattedCertID);
+		}
+		else{
+			
+			$(".cert-entry:last").append('<em><br> </em>');
+		}
+		}
 }
 
 displayWork();
 displayEducation();
+displayCerts();
 
 projects.display = function() {
 	for(project in projects.projects){
