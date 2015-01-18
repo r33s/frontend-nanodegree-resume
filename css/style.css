@@ -112,11 +112,13 @@ a {
 
 .dark-gray {
   background-color: #4A4A4A;
+  /*background-image: url("images/bluleaf.jpg");*/
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  /*background-color: #484848;*/
+  background-image: url("../images/bluleaf.jpg");
 }
 
 .flex-box {
@@ -141,6 +143,13 @@ ul {
 
 .biopic {
   float: left;
+  padding: 10px;
+  width: 200px;
+  display: none;
+}
+
+.docimg {
+  /*float: left;*/
   padding: 10px;
   width: 200px;
   display: none;
@@ -180,6 +189,9 @@ span {
   .biopic {
     width: 175px;
   }
+  .docimg {
+    width: 175px;
+  }
 }
 
 @media only screen and (max-width: 750px) {
@@ -187,6 +199,9 @@ span {
     margin-top: 10%;
   }
   .biopic {
+    width: 150px;
+  }
+  .docimg {
     width: 150px;
   }
   .welcome-message {
@@ -212,10 +227,16 @@ span {
   .biopic {
     display: block;
   }
+  .docimg {
+    display: block;
+  }
 }
 
 .justify {
   padding-top: 3%;
   padding-left: 0;
-  
+}
+
+#name{
+  font-family: Sakkal Majalla;
 }

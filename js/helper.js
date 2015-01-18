@@ -40,7 +40,7 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectImage = '<img src="%data%" class="docimg">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#" target="_blank">%data%';
@@ -56,6 +56,7 @@ var HTMLcertTitle = ' - %data%</a>';
 var HTMLcertDate = '<div class="date-text">%data%</div>';
 var HTMLcertURL = '<br><a href="#">%data%</a>';
 var HTMLcertID = '<em><br>Career ID: %data%</em>';
+var HTMLcertImage = '<img src="%data%" class="docimg">';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';

@@ -12,11 +12,45 @@ var bio = {
 		"twitter": "@drfilips",
 		"location": "Cleveland"
 	},
-	"bioPic": "images/mechillin.jpg",
+	"bioPic": "images/biopic1.jpg",
 	"welcomeMessage" : "Greetings new employer!",
 	"skills": [
 	"project management", "programming", "web development", "networking"
 	]
+}
+var formattedMobile = HTMLmobile.replace("%data%",bio.contactinfo.mobile);
+var formattedEmail = HTMLemail.replace("%data%",bio.contactinfo.email);
+var formattedGithub = HTMLgithub.replace("%data%",bio.contactinfo.github);
+var formattedTwitter = HTMLtwitter.replace("%data%",bio.contactinfo.twitter);
+var formattedLocation = HTMLlocation.replace("%data%",bio.contactinfo.location);
+var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
+var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+$("#topContacts").append(formattedMobile);
+$("#topContacts").append(formattedEmail);
+$("#topContacts").append(formattedGithub);
+$("#topContacts").append(formattedTwitter);
+$("#topContacts").append(formattedLocation);
+$("#footerContacts").append(formattedMobile);
+$("#footerContacts").append(formattedEmail);
+$("#footerContacts").append(formattedGithub);
+$("#footerContacts").append(formattedTwitter);
+$("#footerContacts").append(formattedLocation);
+
+
+$("#header").append(formattedBioPic);
+$("#header").append(formattedWelcomeMsg);
+console.log(formattedMobile);
+
+if(bio.skills != 0){
+	$("#header").append(HTMLskillsStart);
+	for(var i=0; i!=bio.skills.length; i++){
+		var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
+		$("#skills").append(formattedSkills);
+	}
 }
 
 var work = {
@@ -82,35 +116,35 @@ var certification = {
 			"institute": "Cisco",
 			"id": "CSCO12473485",
 			"date": "Expires: September 19, 2016",
-			"image": "images/mechillin.jpg",
+			"image": "images/cisco.jpg",
 		},
 		{
 			"title": "Security+",
 			"institute": "CompTIA",
 			"id": "COMP001020305215",
 			"date": "Expires: May 23, 2016",
-			"image": "images/mechillin.jpg",
+			"image": "images/security.jpg",
 		},
 		{
 			"title": "Network+",
 			"institute": "CompTIA",
 			"id": "COMP001020305215",
 			"date": "Expires: May 23, 2016",
-			"image": "images/mechillin.jpg",
+			"image": "images/network.jpg",
 		},
 		{
 			"title": "A+",
 			"institute": "CompTIA",
 			"id": "COMP001020305215",
 			"date": "Expires: May 23, 2016",
-			"image": "images/mechillin.jpg",
+			"image": "images/a.jpg",
 		},
 		{
 			"title": "Six Sigma Green Belt",
 			"institute": "at&t",
 			"id": "",
 			"date": "Certified November 15, 2013",
-			"image": "images/mechillin.jpg",
+			"image": "images/gbelt.jpg",
 		}
 	]
 	
@@ -128,44 +162,9 @@ var projects = {
 		"title": "Mockup to Website",
 		"dates": 2014,
 		"description": "Duplicate a website design and layout based of a PDF document.",
-		"images": [""]
+		"images": ["images/page-mock.png"]
 		}
 	]
-}
-
-var formattedMobile = HTMLmobile.replace("%data%",bio.contactinfo.mobile);
-var formattedEmail = HTMLemail.replace("%data%",bio.contactinfo.email);
-var formattedGithub = HTMLgithub.replace("%data%",bio.contactinfo.github);
-var formattedTwitter = HTMLtwitter.replace("%data%",bio.contactinfo.twitter);
-var formattedLocation = HTMLlocation.replace("%data%",bio.contactinfo.location);
-var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
-var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
-$("#topContacts").append(formattedMobile);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(formattedGithub);
-$("#topContacts").append(formattedTwitter);
-$("#topContacts").append(formattedLocation);
-$("#footerContacts").append(formattedMobile);
-$("#footerContacts").append(formattedEmail);
-$("#footerContacts").append(formattedGithub);
-$("#footerContacts").append(formattedTwitter);
-$("#footerContacts").append(formattedLocation);
-
-
-$("#header").append(formattedBioPic);
-$("#header").append(formattedWelcomeMsg);
-console.log(formattedMobile);
-
-if(bio.skills != 0){
-	$("#header").append(HTMLskillsStart);
-	for(var i=0; i!=bio.skills.length; i++){
-		var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
-		$("#skills").append(formattedSkills);
-	}
 }
 
 function displayWork(){
@@ -225,6 +224,7 @@ function displayCerts(){
 		var formattedInstituteTitle = formattedCertInstitute + formattedCertTitle;
 		$(".cert-entry:last").append(formattedInstituteTitle);
 		var formattedCertDate = HTMLcertDate.replace("%data%", certification.certs[cert].date);
+		var formattedCertImage = HTMLcertImage.replace("%data%", certification.certs[cert].image);
 		
 		//var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		//var i = certification.certs.length;
@@ -245,6 +245,7 @@ function displayCerts(){
 			
 			$(".cert-entry:last").append('<em><br> </em>');
 		}
+		$(".cert-entry:last").append(formattedCertImage);
 		}
 }
 
@@ -258,11 +259,11 @@ projects.display = function() {
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
 		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
 		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-		//var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+		var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
 		$(".project-entry:last").append(formattedProjectTitle);
 		$(".project-entry:last").append(formattedProjectDates);
 		$(".project-entry:last").append(formattedProjectDescription);
-		//$(".project-entry:last").append(formattedProjectImages);
+		$(".project-entry:last").append(formattedProjectImage);
 	}
 }
 
