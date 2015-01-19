@@ -93,11 +93,11 @@ a {
   display: none;
 }
 
-.orange {
+.orange {/*left the color name orange but changed the color, i don't want to update until i finalize my colors*/
   background-color: #F5AE23;
 }
 
-.orange-text {
+.orange-text { /*left the color name orange but changed the color and weight, i don't want to update until i finalize my colors*/
   font-weight: 800;
   color: #424242;
 
@@ -121,7 +121,7 @@ a {
 /* TODO: Replace with image later */
 #header, #footerContacts{
   background-color: #0174DF;
-  background-image: url("../images/bluleaf.jpg");
+  background-image: url("../images/bluleaf.jpg");/*changed the background color in case there is an image problem and added an image*/
 }
 
 .flex-box {
@@ -152,7 +152,6 @@ ul {
 }
 
 .docimg {
-  /*float: left;*/
   padding: 10px;
   width: 200px;
   display: none;
@@ -234,8 +233,8 @@ span {
     display: block;
   }
 }
-
-#name, .orange_center-text{
+/*added the CSS below to make my own look*/
+#name, .orange_center-text{/*left the name orange but changed the color, i don't want to update until i finalize my colors*/
   font-family: Sakkal Majalla, fantasy;
   color: #424242;
 }
@@ -255,7 +254,7 @@ span {
   font-size: 40px;
 }
 
-#topContacts a,#footerContacts a{
+#topContacts a,#footerContacts a{/*added contact links for interactivity*/
   text-decoration: none;
   display: inline;
 }

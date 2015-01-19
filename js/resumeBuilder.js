@@ -1,5 +1,5 @@
 
-//variables used by the functions below
+//objects used for the resume
 var bio = {
 	"name": "Randy Rees",
 	"role": "Engineer/Web Developer",
@@ -180,11 +180,11 @@ var projects = {
 	]
 }
 
-bio.display = function(){
+bio.display = function(){/*add display to bio object*/
 	var formattedName = HTMLheaderName.replace("%data%",bio.name);
 	var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-	$("#header").prepend(formattedRole);
-	$("#header").prepend(formattedName);
+	$("#header").prepend(formattedRole);/*add title name to page*/
+	$("#header").prepend(formattedName);/*add role next to title name*/
 
 	var formattedPhone = HTMLphone.replace("#","tel:4404278400").replace("%data%",bio.contactinfo.phone);
 	var formattedEmail = HTMLemail.replace("#","mailto:randy@r33s.com").replace("%data%",bio.contactinfo.email);
@@ -205,12 +205,12 @@ bio.display = function(){
 	$("#footerContacts").append(formattedLinkedin);
 	$("#footerContacts").append(formattedLocation);
 
-	var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
+	var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);/*adds welcome message and profile pic to the page*/
 	var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
 	$("#header").append(formattedBioPic);
 	$("#header").append(formattedWelcomeMsg);
 
-	if(bio.skills != 0){
+	if(bio.skills != 0){/*displays skills header and skills if there are any in the array*/
 		$("#header").append(HTMLskillsStart);
 		for(var i=0; i!=bio.skills.length; i++){
 			var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
@@ -219,7 +219,7 @@ bio.display = function(){
 	}
 }
 
-work.display = function(){
+work.display = function(){/*add display to work object*/
 	for(job in work.jobs){
 		$("#workExperience").append(HTMLworkStart);
 		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -235,7 +235,7 @@ work.display = function(){
 	}
 }
 
-education.display = function(){
+education.display = function(){/*add display to education object*/
 	for(school in education.schools){
 		$("#education").append(HTMLschoolStart);
 		var formattedSchoolName = HTMLschoolName.replace("#", education.schools[school].url).replace("%data%", education.schools[school].name);
@@ -251,7 +251,7 @@ education.display = function(){
 		}
 }
 
-certification.display = function(){
+certification.display = function(){/*add display to certificaton object*/
 	for(cert in certification.certs){
 		$("#cert").append(HTMLcertStart);
 		var formattedCertTitle = HTMLcertTitle.replace("%data%",certification.certs[cert].title);
@@ -262,7 +262,7 @@ certification.display = function(){
 		var formattedCertImage = HTMLcertImage.replace("%data%", certification.certs[cert].image);
 		var formattedCertID = HTMLcertID.replace("%data%", certification.certs[cert].id);
 		$(".cert-entry:last").append(formattedCertDate);
-		if(formattedCertID!='<em><br>Career ID: </em>'){
+		if(formattedCertID!='<em><br>Career ID: </em>'){/*checks to see if certification has an ID, displays it if it does*/
 			$(".cert-entry:last").append(formattedCertID);
 		}
 		else{
@@ -272,17 +272,22 @@ certification.display = function(){
 		}
 }
 
-projects.display = function(){
+projects.display = function(){/*add display to project object*/
 	for(project in projects.projects){
 		$("#projects").append(HTMLprojectStart);
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
 		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
 		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-		var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
 		$(".project-entry:last").append(formattedProjectTitle);
 		$(".project-entry:last").append(formattedProjectDates);
 		$(".project-entry:last").append(formattedProjectDescription);
-		$(".project-entry:last").append(formattedProjectImage);
+
+		if (projects.projects[project].images.length > 0){//displays images of the project if available
+			for (image in projects.projects[project].images){
+				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+				$(".project-entry:last").append(formattedProjectImage);	
+			}
+		}	
 	}
 }
 
