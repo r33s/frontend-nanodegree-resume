@@ -1,10 +1,8 @@
-var name = "Randy Rees";
-var formattedName = HTMLheaderName.replace("%data%",name);
-var role = "Engineer/Web Developer";
-var formattedRole = HTMLheaderRole.replace("%data%",role);
+
+//variables used by the functions below
 var bio = {
 	"name": "Randy Rees",
-	"role": "Capacity Planning Manager/Web Developer",
+	"role": "Engineer/Web Developer",
 	"contactinfo": {
 		"phone": "440-427-8400",
 		"email": "randy@r33s.com",
@@ -18,43 +16,6 @@ var bio = {
 	"skills": [
 	"project management", "programming", "web development", "networking", "telecomminications", "leadership", "network planning", "network security", "electrical engineering", "network engineering", "network administration", "javascript", "VHDL", "CSS", "HTML", "six sigma", "lean management", "data management", "software engineering", "quality assurance", "interpersonal communications", "supervisory", "computer architecture"
 	]
-}
-var formattedPhone = HTMLphone.replace("#","tel:4404278400").replace("%data%",bio.contactinfo.phone);
-var formattedEmail = HTMLemail.replace("#","mailto:randy@r33s.com").replace("%data%",bio.contactinfo.email);
-var formattedGithub = HTMLgithub.replace("#","https://github.com/r33s").replace("%data%",bio.contactinfo.github);
-var formattedTwitter = HTMLtwitter.replace("#","https://twitter.com/drfilips").replace("%data%",bio.contactinfo.twitter);
-var formattedLinkedin = HTMLlinkedin.replace("#","http://www.linkedin.com/in/rees13").replace("%data%",bio.contactinfo.linkedin);
-var formattedLocation = HTMLlocation.replace("#","https://www.google.com/maps/place/Cleveland,+OH/@41.4949426,-81.7058599,11z/data=!3m1!4b1!4m2!3m1!1s0x8830ef2ee3686b2d:0xed04cb55f7621842").replace("%data%",bio.contactinfo.location);
-var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
-var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
-console.log(formattedEmail);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
-$("#topContacts").append(formattedPhone);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(formattedGithub);
-$("#topContacts").append(formattedTwitter);
-$("#topContacts").append(formattedLinkedin);
-$("#topContacts").append(formattedLocation);
-$("#footerContacts").append(formattedPhone);
-$("#footerContacts").append(formattedEmail);
-$("#footerContacts").append(formattedGithub);
-$("#footerContacts").append(formattedTwitter);
-$("#footerContacts").append(formattedLinkedin);
-$("#footerContacts").append(formattedLocation);
-
-
-$("#header").append(formattedBioPic);
-$("#header").append(formattedWelcomeMsg);
-
-if(bio.skills != 0){
-	$("#header").append(HTMLskillsStart);
-	for(var i=0; i!=bio.skills.length; i++){
-		var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
-		$("#skills").append(formattedSkills);
-	}
 }
 
 var work = {
@@ -84,7 +45,7 @@ var work = {
 		"employer": "SBC/at&t",
 		"title": "Copper Cable Splicing Technician BAU/Lightspeed",
 		"dates": "July 2005 - August 2006 & January 2002 - December 2002",
-		"location": "Cleveland, OH; Akron, OH; Columbus, OH; Detroit, MI; Milwaukee, WI",
+		"location": "Detroit, MI",
 		"description": "Built and maintained the outside plant network. Constructed, tested, troubleshot, and repaired high capacity circuits. Removed load coils, spliced in repeaters. Installed/replaced VRADs, RTs, Xboxes, Positron cabinets. Condition pairs for Uverse and other high capacity circuits. Worked alone and with a team to complete large projects sometimes in emergency situations. Worked throughout the Midwest in Wisconsin, Michigan, and Ohio. Worked with multiple groups including Design, Deg, Repair, TIMs to complete large tasks. Dealt with customers daily. Loaned to repair throughout my career to help maintain the repair load. Used test equipment for troubleshooting and testing (965, T- berd, Throwmaster 102-109, JDSU, etc). Worked in an MSOC controlled environment."
 		},
 		{
@@ -104,7 +65,7 @@ var work = {
 		{
 		"employer": "SBC",
 		"title": "Cable Locator",
-		"dates": "January 2003 - June 2003",
+		"dates": "January 2002 - June 2003",
 		"location": "Ironton, OH",
 		"description": "Responsible for locating all outside plant facilities throughout Southern Ohio, including fiber rings outside at&t territory. Worked and built relationships with customers and contractors daily to avoid damage to our outside plant infrastructure. Used a cable locator, NIMs and GCAS to locate at&t facilities."
 		},
@@ -219,7 +180,46 @@ var projects = {
 	]
 }
 
-function displayWork(){
+bio.display = function(){
+	var formattedName = HTMLheaderName.replace("%data%",bio.name);
+	var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+	$("#header").prepend(formattedRole);
+	$("#header").prepend(formattedName);
+
+	var formattedPhone = HTMLphone.replace("#","tel:4404278400").replace("%data%",bio.contactinfo.phone);
+	var formattedEmail = HTMLemail.replace("#","mailto:randy@r33s.com").replace("%data%",bio.contactinfo.email);
+	var formattedGithub = HTMLgithub.replace("#","https://github.com/r33s").replace("%data%",bio.contactinfo.github);
+	var formattedTwitter = HTMLtwitter.replace("#","https://twitter.com/drfilips").replace("%data%",bio.contactinfo.twitter);
+	var formattedLinkedin = HTMLlinkedin.replace("#","http://www.linkedin.com/in/rees13").replace("%data%",bio.contactinfo.linkedin);
+	var formattedLocation = HTMLlocation.replace("#","https://www.google.com/maps/place/Cleveland,+OH/@41.4949426,-81.7058599,11z/data=!3m1!4b1!4m2!3m1!1s0x8830ef2ee3686b2d:0xed04cb55f7621842").replace("%data%",bio.contactinfo.location);
+	$("#topContacts").append(formattedPhone);
+	$("#topContacts").append(formattedEmail);
+	$("#topContacts").append(formattedGithub);
+	$("#topContacts").append(formattedTwitter);
+	$("#topContacts").append(formattedLinkedin);
+	$("#topContacts").append(formattedLocation);
+	$("#footerContacts").append(formattedPhone);
+	$("#footerContacts").append(formattedEmail);
+	$("#footerContacts").append(formattedGithub);
+	$("#footerContacts").append(formattedTwitter);
+	$("#footerContacts").append(formattedLinkedin);
+	$("#footerContacts").append(formattedLocation);
+
+	var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
+	var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
+	$("#header").append(formattedBioPic);
+	$("#header").append(formattedWelcomeMsg);
+
+	if(bio.skills != 0){
+		$("#header").append(HTMLskillsStart);
+		for(var i=0; i!=bio.skills.length; i++){
+			var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
+			$("#skills").append(formattedSkills);
+		}
+	}
+}
+
+work.display = function(){
 	for(job in work.jobs){
 		$("#workExperience").append(HTMLworkStart);
 		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -235,7 +235,7 @@ function displayWork(){
 	}
 }
 
-function displayEducation(){
+education.display = function(){
 	for(school in education.schools){
 		$("#education").append(HTMLschoolStart);
 		var formattedSchoolName = HTMLschoolName.replace("#", education.schools[school].url).replace("%data%", education.schools[school].name);
@@ -245,30 +245,13 @@ function displayEducation(){
 		var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].date);
 		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
-		//var formattedSchoolURL = HTMLschoolURL.replace("%data%", education.schools[school].url);
 		$(".education-entry:last").append(formattedSchoolLocation);
 		$(".education-entry:last").append(formattedSchoolDates);
-		//$(".education-entry:last").append(formattedSchoolURL);
 		$(".education-entry:last").append(formattedSchoolMajor);
 		}
-
-	/*if(education.certs != 0){
-		$(".education-entry:last").append(HTMLcertClasses);
-		for(cert in education.certs){
-			var formattedCertTitle = HTMLcertTitle.replace("%data%",education.certs[cert].title);
-			var formattedCertInstitute = HTMLcertInstitute.replace("%data%",education.certs[cert].institute);
-			var formattedInstituteTitle = formattedCertInstitute + formattedCertTitle;
-			$(".education-entry:last").append(formattedInstituteTitle);
-			var formattedCertDate = HTMLcertDate.replace("%data%", education.certs[cert].date);
-			//var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-			var formattedCertID = HTMLcertID.replace("%data%", education.certs[cert].id);
-			$(".education-entry:last").append(formattedCertDate);
-			$(".education-entry:last").append(formattedCertID);
-		}
-	}*/
 }
 
-function displayCerts(){
+certification.display = function(){
 	for(cert in certification.certs){
 		$("#cert").append(HTMLcertStart);
 		var formattedCertTitle = HTMLcertTitle.replace("%data%",certification.certs[cert].title);
@@ -277,35 +260,19 @@ function displayCerts(){
 		$(".cert-entry:last").append(formattedInstituteTitle);
 		var formattedCertDate = HTMLcertDate.replace("%data%", certification.certs[cert].date);
 		var formattedCertImage = HTMLcertImage.replace("%data%", certification.certs[cert].image);
-		
-		//var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-		//var i = certification.certs.length;
-		//console.log(i);
-		//if(certification.certs[cert].id!="5"){
-		//	console.log(certification.certs[cert].id);
-			var formattedCertID = HTMLcertID.replace("%data%", certification.certs[cert].id);
-		//var formattedCertSpace = 
-		//	console.log(certification.certs[cert].id);
-		//}
-		//console.log(i);
+		var formattedCertID = HTMLcertID.replace("%data%", certification.certs[cert].id);
 		$(".cert-entry:last").append(formattedCertDate);
-		console.log(formattedCertID);
 		if(formattedCertID!='<em><br>Career ID: </em>'){
 			$(".cert-entry:last").append(formattedCertID);
 		}
 		else{
-			
 			$(".cert-entry:last").append('<em><br> </em>');
 		}
 		$(".cert-entry:last").append(formattedCertImage);
 		}
 }
 
-displayWork();
-displayEducation();
-displayCerts();
-
-projects.display = function() {
+projects.display = function(){
 	for(project in projects.projects){
 		$("#projects").append(HTMLprojectStart);
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -319,10 +286,9 @@ projects.display = function() {
 	}
 }
 
-projects.display();
-
+//interactive map near bottom of the page
+function displayMap(){
 inName(name);
-
 function inName(headerName) {
     var internationalName = headerName;
     var space = ' ';
@@ -339,6 +305,15 @@ function inName(headerName) {
     internationalName = firstLetter + endFname + ' ' + lastName;
     return internationalName;
 }
-
-//$("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
+}
+
+//calls to the functions
+bio.display();
+work.display();
+education.display();
+certification.display();
+projects.display();
+displayMap();
+
+//$("#main").append(internationalizeButton); //places button on the bottom of the page to internationalize the title name.
