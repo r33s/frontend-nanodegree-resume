@@ -87,7 +87,7 @@ a {
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #424242;
   display: none;
 }
 
@@ -96,7 +96,9 @@ a {
 }
 
 .orange-text {
-  color: #F5AE23;
+  font-weight: 800;
+  color: #424242;
+
 }
 
 .white-text {
@@ -112,12 +114,11 @@ a {
 
 .dark-gray {
   background-color: #4A4A4A;
-  /*background-image: url("images/bluleaf.jpg");*/
 }
 
 /* TODO: Replace with image later */
-#header {
-  /*background-color: #484848;*/
+#header, #footerContacts{
+  background-color: #0174DF;
   background-image: url("../images/bluleaf.jpg");
 }
 
@@ -232,11 +233,27 @@ span {
   }
 }
 
-.justify {
-  padding-top: 3%;
-  padding-left: 0;
+#name, .orange_center-text{
+  font-family: Sakkal Majalla, fantasy;
+  color: #424242;
+}
+
+.role{
+  color: #DFE8EB;
+  font-size: 18px;
 }
 
 #name{
-  font-family: Sakkal Majalla;
+  font-size: 75px;
+}
+
+.orange_center-text{
+  background-color: #0174DF;
+  background-image: url("../images/stainless.jpg"); 
+  font-size: 40px;
+}
+
+#topContacts a,#footerContacts a{
+  text-decoration: none;
+  display: inline;
 }

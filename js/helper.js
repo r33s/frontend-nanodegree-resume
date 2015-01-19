@@ -13,15 +13,15 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr/>';
+var HTMLheaderRole = '<span class="role">%data%</span><hr/>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLphone = '<li class="flex-item"><span class="orange-text">phone</span><a href="#"><span class="white-text">%data%</span></a></li>';
+var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><a href="#"><span class="white-text">%data%</span></a></li>';
+var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><a href="#" target="_blank"><span class="white-text">%data%</span></a></li>';
+var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><a href="#" target="_blank"><span class="white-text">%data%</span></a></li>';
+var HTMLlinkedin = '<li class="flex-item"><span class="orange-text">linkedin</span><a href="#" target="_blank"><span class="white-text">%data%</span></a></li>';
+var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><a href="#" target="_blank"><span class="white-text">%data%</span></a></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
@@ -50,7 +50,7 @@ var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
 var HTMLcertStart = '<div class="cert-entry"></div>';
-var HTMLcertClasses = '<h3 class="justify">Certifications</h3>';
+var HTMLcertClasses = '<h3 class="justify">Certifications & Licenses</h3>';
 var HTMLcertInstitute = '<a href="#">%data%';
 var HTMLcertTitle = ' - %data%</a>';
 var HTMLcertDate = '<div class="date-text">%data%</div>';
